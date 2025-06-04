@@ -1,167 +1,184 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قهوة ضعفات</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a120b;
-            color: #e0d5c8;
-            background-repeat: no-repeat;
-            background-position: left center;
-            background-size: 300px;
-            min-height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: rgba(26, 18, 11, 0.85);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            border: 1px solid #3e2a1a;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(2px);
-        }
-        h1 {
-            color: #d2b48c;
-            font-size: 32px;
-            margin-bottom: 5px;
-            text-align: center;
-            border-bottom: 2px solid #5a3e2b;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #c19a6b;
-            font-size: 26px;
-            margin-top: 0;
-            text-align: center;
-        }
-        h3 {
-            color: #d2b48c;
-            font-size: 22px;
-            margin-top: 25px;
-            background-color: rgba(90, 62, 43, 0.5);
-            padding: 8px 15px;
-            border-radius: 5px;
-            display: inline-block;
-            border: 1px solid #5a3e2b;
-        }
-        h4 {
-            color: #c19a6b;
-            font-size: 18px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: rgba(26, 18, 11, 0.7);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #3e2a1a;
-        }
-        th {
-            background-color: #5a3e2b;
-            color: #e0d5c8;
-            padding: 15px;
-            text-align: right;
-            font-weight: bold;
-        }
-        td {
-            padding: 12px 15px;
-            text-align: right;
-            border-bottom: 1px solid #3e2a1a;
-        }
-        tr:nth-child(even) {
-            background-color: rgba(90, 62, 43, 0.3);
-        }
-        tr:hover {
-            background-color: rgba(193, 154, 107, 0.1);
-        }
-        .footer {
-            margin-top: 25px;
-            font-style: italic;
-            text-align: center;
-            color: #c19a6b;
-            font-size: 14px;
-            padding-top: 10px;
-            border-top: 1px dashed #5a3e2b;
-        }
-        .price {
-            color: #d2b48c;
-            font-weight: bold;
-        }
-        .coffee-cup {
-            position: absolute;
-            left: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.15;
-            z-index: 0;
-            width: 300px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>قهوة ضعفات</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a120b;
+      color: #e0d5c8;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(26, 18, 11, 0.85);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      border: 1px solid #3e2a1a;
+      backdrop-filter: blur(2px);
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2, h3, h4 {
+      animation: slideUp 1s ease-out;
+      text-align: center;
+      color: #d2b48c;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: rgba(26, 18, 11, 0.7);
+      border: 1px solid #3e2a1a;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #3e2a1a;
+      text-align: right;
+    }
+    th {
+      background-color: #5a3e2b;
+      color: #fff;
+    }
+    .price {
+      color: #d2b48c;
+      font-weight: bold;
+    }
+    .menu-section {
+      margin-bottom: 40px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    .about {
+      background-color: rgba(90, 62, 43, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+    .whatsapp-btn {
+      display: block;
+      background-color: #25D366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #c19a6b;
+      margin-top: 30px;
+      border-top: 1px dashed #5a3e2b;
+      padding-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ضعفات القهوة</h1>
-        <h2>قائمة المشروبات</h2>
-        
-        <h3>قهوة ساخنة</h3>
-        <h4>الأصناف الأساسية</h4>
-        
-        <table>
-            <tr>
-                <th>النوع</th>
-                <th>الوصف</th>
-                <th>السعر (ريال)</th>
-            </tr>
-            <tr>
-                <td>إسبرسو</td>
-                <td>قهوة مركزة بقوة</td>
-                <td class="price">23</td>
-            </tr>
-            <tr>
-                <td>كابوتشينو</td>
-                <td>إسبرسو مع حليب مبخر</td>
-                <td class="price">24</td>
-            </tr>
-            <tr>
-                <td>قهوة لاتيه</td>
-                <td>إسبرسو مع كمية كبيرة من الحليب</td>
-                <td class="price">24</td>
-            </tr>
-            <tr>
-                <td>متشا لاتيه</td>
-                <td>شاي أخضر ياباني مع حليب</td>
-                <td class="price">29</td>
-            </tr>
-            <tr>
-                <td>أمريكانو</td>
-                <td>إسبرسو مع ماء ساخن</td>
-                <td class="price">22</td>
-            </tr>
-            <tr>
-                <td>قهوة تركية</td>
-                <td>قهوة مطحونة ناعماً مع الهيل</td>
-                <td class="price">26</td>
-            </tr>
-            <tr>
-                <td>قهوة إسبانية</td>
-                <td>قهوة مع الحليب المكثف المحلى</td>
-                <td class="price">40</td>
-            </tr>
-        </table>
-        
-        <p class="footer">السعر شامل الضريبة</p>
+  <div class="container">
+    <h1>قهوة ضعفات</h1>
+    <h2>قائمة المأكولات والمشروبات</h2>
+
+    <div class="menu-section">
+      <h3>المشروبات الساخنة</h3>
+      <table>
+        <tr><th>النوع</th><th>السعر</th></tr>
+        <tr><td>إسبرسو</td><td class="price">23</td></tr>
+        <tr><td>كابوتشينو</td><td class="price">24</td></tr>
+      </table>
     </div>
+
+    <div class="menu-section">
+      <h3>المشروبات الباردة</h3>
+      <table>
+        <tr><th>النوع</th><th>السعر</th></tr>
+        <tr><td>آيس لاتيه</td><td class="price">26</td></tr>
+        <tr><td>موهيتو</td><td class="price">27</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-section">
+      <h3>الإضافات</h3>
+      <table>
+        <tr><th>الإضافة</th><th>السعر</th></tr>
+        <tr><td>كراميل</td><td class="price">3</td></tr>
+        <tr><td>كريمة خفق</td><td class="price">4</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-section">
+      <h3>الوجبات السريعة</h3>
+      <table>
+        <tr><th>الصنف</th><th>المكونات</th><th>السعر</th></tr>
+        <tr><td>برجر لحم</td><td>لحم بقري مع خضار وصوص خاص</td><td class="price">35</td></tr>
+        <tr><td>برجر دجاج</td><td>صدر دجاج مشوي مع صلصة الثوم</td><td class="price">30</td></tr>
+        <tr><td>ساندوتش شاورما</td><td>شاورما دجاج أو لحم مع الثومية</td><td class="price">28</td></tr>
+        <tr><td>بطاطس مقرمشة</td><td>بطاطس مقلية مع صوص الجبنة</td><td class="price">15</td></tr>
+        <tr><td>تشكن ناجتس</td><td>قطع دجاج مقرمشة مع صوص باربكيو</td><td class="price">25</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-section">
+      <h3>الحلويات</h3>
+      <table>
+        <tr><th>الصنف</th><th>الوصف</th><th>السعر</th></tr>
+        <tr><td>تشيز كيك</td><td>تشيز كيك بالفراولة</td><td class="price">22</td></tr>
+        <tr><td>براونيز</td><td>كيك شوكولاتة غني ومقرمش</td><td class="price">18</td></tr>
+        <tr><td>كريب نوتيلا</td><td>كريب محشو بشوكولاتة البندق</td><td class="price">20</td></tr>
+      </table>
+    </div>
+
+    <div class="menu-section">
+  <h3>معرض الصور</h3>
+  <div class="gallery">
+    <img src="https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg" alt="برجر لحم">
+    <img src="download.jpeg" alt="تشيز كيك">
+    <img src="images.jpeg" alt="كريب نوتيلا">
+    <img src="https://images.pexels.com/photos/3026807/pexels-photo-3026807.jpeg" alt="براونيز">
+  </div>
+</div>
+
+
+    <div class="menu-section about">
+      <h3>من نحن</h3>
+      <p>نحن في قهوة ضعفات نقدم تجربة مميزة لعشاق القهوة والمأكولات السريعة والحلويات. نفتخر باستخدام أجود المكونات وتحضير مشروبات لذيذة بطابع عربي عصري. نسعى لتوفير بيئة دافئة ترحب بجميع الزوار.</p>
+    </div>
+
+    <a href="https://wa.me/201023611198" class="whatsapp-btn">
+      <i class="fab fa-whatsapp"></i> تواصل معنا عبر الواتساب
+    </a>
+
+    <div class="footer">جميع الأسعار شاملة الضريبة</div>
+  </div>
 </body>
 </html>
